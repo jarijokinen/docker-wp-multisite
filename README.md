@@ -39,6 +39,9 @@ src/init-custom-site.sh:
 ```bash
 #!/bin/bash
 
+set -e
+shopt -s nullglob
+
 # Call the entrypoint script of the parent image
 DISABLE_FOREGROUND=1 ./init-wp.sh
 
