@@ -84,8 +84,7 @@ for theme in "${themes[@]}"; do
   rm "/tmp/$theme.zip"
 done
 
-chown -R www-data:www-data /wp/wp-content
-chown -R www-data:www-data /wp-uploads
+chown -R wp:wp /wp/wp-content
 
 # Prevent the container from exiting
 tail -f /dev/null

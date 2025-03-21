@@ -20,6 +20,7 @@ fi
 
 if [[ ! -d /wp/wp-content/uploads && -d /wp-uploads ]]; then
   ln -s /wp-uploads /wp/wp-content/uploads
+  chown -R wp:wp /wp-uploads
 fi
 
 mkdir -p /wp/wp-content/themes/blank
