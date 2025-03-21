@@ -1,0 +1,27 @@
+services:
+  db:
+    environment:
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+    image: mysql:latest
+    platform: linux/x86_64
+    ports:
+      - 3306:3306
+    volumes:
+      - db_data:/var/lib/mysql
+  wp:
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp
+      WORDPRESS_ENV: development
+    image: jarijokinen/wp-multisite:latest
+    ports:
+      - 80:8080
+volumes:
+  db_data:
