@@ -5,6 +5,7 @@ if ('%WORDPRESS_ENV%' === 'development') {
 }
 else {
   define('WP_DEBUG', false);
+  define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST']);
   $_SERVER['HTTPS'] = 'on';
 }
 
